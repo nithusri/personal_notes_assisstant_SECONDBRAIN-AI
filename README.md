@@ -1,8 +1,7 @@
 
 # personal_notes_assisstant_SECONDBRAIN-AI
-Second Brain AI: Upload PDFs, chat with your documents using multimodal AI, and generate targeted smart quizzes to test your knowledg
-=======
->>>>>>> 6a17ba2 (Initial commit: Complete MERN Second Brain AI)
+Second Brain AI: Upload PDFs, chat with your documents using multimodal AI, and generate targeted smart quizzes to test your knowledge
+
 # 🧠 Second Brain AI
 
 A powerful, full-stack Personal AI Assistant and Knowledge Base built with the MERN stack (MongoDB, Express, React, Node.js) and powered by Google's Gemini AI. 
