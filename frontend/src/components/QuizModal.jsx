@@ -21,7 +21,7 @@ const QuizModal = () => {
     try {
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/ai/notes', config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/ai/notes`, config);
       setAvailableNotes(data);
     } catch (err) {
       console.error(err);
@@ -39,7 +39,7 @@ const QuizModal = () => {
     try {
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.post('http://localhost:5000/api/ai/quiz', { noteIds: selectedNotes }, config);
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/quiz`, { noteIds: selectedNotes }, config);
       
       if (data && data.length > 0) {
         setQuizData(data);

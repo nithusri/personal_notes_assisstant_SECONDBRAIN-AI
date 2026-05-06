@@ -16,7 +16,7 @@ const ChatInterface = () => {
     try {
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/ai/notes', config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/ai/notes`, config);
       setNotes(data);
     } catch (err) {
       console.error('Failed to fetch notes:', err);
@@ -70,7 +70,7 @@ const ChatInterface = () => {
         },
       };
 
-      const { data } = await axios.post('http://localhost:5000/api/ai/chat', { 
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/chat`, { 
         query: userMessage.text,
         noteId: selectedNote || undefined,
         image: currentImage ? { data: currentImage.data, mimeType: currentImage.mimeType } : undefined

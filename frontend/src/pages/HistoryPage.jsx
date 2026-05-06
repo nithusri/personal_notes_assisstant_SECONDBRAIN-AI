@@ -23,7 +23,7 @@ const HistoryPage = () => {
       try {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = await axios.get('http://localhost:5000/api/ai/notes', config);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/ai/notes`, config);
         setNotes(data);
       } catch {
         setError('Failed to load upload history.');
@@ -39,7 +39,7 @@ const HistoryPage = () => {
     try {
       const userInfo = JSON.parse(localStorage.getItem('userInfo'));
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      await axios.delete(`http://localhost:5000/api/ai/notes/${id}`, config);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/ai/notes/${id}`, config);
       setNotes(notes.filter(n => n._id !== id));
     } catch (err) {
       alert('Failed to delete note');

@@ -32,7 +32,7 @@ const AiPage = () => {
     const fetchHistory = async () => {
       setHistoryLoading(true);
       try {
-        const { data } = await axios.get('http://localhost:5000/api/ai/chat/history', getConfig());
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/ai/chat/history`, getConfig());
         setSessions(data);
       } catch {
         setSessions([]);
@@ -91,7 +91,7 @@ const AiPage = () => {
 
     try {
       const { data } = await axios.post(
-        'http://localhost:5000/api/ai/chat',
+        `${import.meta.env.VITE_API_URL}/api/ai/chat`,
         { 
           query: userText, 
           history: activeSession ? messages : [],
@@ -105,7 +105,7 @@ const AiPage = () => {
       // Save to backend
       try {
         const { data: saved } = await axios.post(
-          'http://localhost:5000/api/ai/chat/save',
+          `${import.meta.env.VITE_API_URL}/api/ai/chat/save`,
           { 
             sessionId: activeSession, 
             userMessage: userText, 
@@ -118,7 +118,7 @@ const AiPage = () => {
         setActiveSession(newSessionId);
 
         // Refresh sidebar
-        const { data: updatedSessions } = await axios.get('http://localhost:5000/api/ai/chat/history', getConfig());
+        const { data: updatedSessions } = await axios.get(`${import.meta.env.VITE_API_URL}/api/ai/chat/history`, getConfig());
         setSessions(updatedSessions);
       } catch { /* non-critical */ }
 

@@ -13,7 +13,7 @@ const RevisionSuggestions = () => {
       const config = {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       };
-      const { data } = await axios.get('http://localhost:5000/api/ai/revision', config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/ai/revision`, config);
       setSuggestions(data.suggestions);
     } catch (error) {
       setSuggestions('Failed to load revision suggestions.');

@@ -51,7 +51,7 @@ const FileUpload = ({ onUploadSuccess }) => {
         },
       };
 
-      await axios.post('http://localhost:5000/api/ai/upload', formData, config);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/ai/upload`, formData, config);
       setFile(null);
       if (onUploadSuccess) onUploadSuccess();
     } catch (err) {
