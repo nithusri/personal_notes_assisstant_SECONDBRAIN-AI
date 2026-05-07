@@ -1,11 +1,7 @@
 
 # personal_notes_assisstant_SECONDBRAIN-AI
-<<<<<<< HEAD
+
 Second Brain AI: Upload PDFs, chat with your documents using multimodal AI, and generate targeted smart quizzes to test your knowledge
-=======
-Second Brain AI: Upload PDFs, chat with your documents using multimodal AI, and generate targeted smart quizzes to test your knowledg
-=======
->>>>>>> 58ff983 (deploy prep)
 
 # 🧠 Second Brain AI
 
