@@ -9,10 +9,12 @@ dotenv.config();
 
 const app = express();
 
-// Build allowed origins list from env (comma-separated) + always allow localhost for dev
+// Build allowed origins list
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:3000',
+  'https://personal-notes-assisstant-secondbra-eight.vercel.app', // From error message
+  'https://personal-notes-assistant-secondbrain-eight.vercel.app', // Corrected spelling
   ...(process.env.CLIENT_URL
     ? process.env.CLIENT_URL.split(',').map(o => o.trim()).filter(Boolean)
     : []),
